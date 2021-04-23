@@ -1,0 +1,7 @@
+C:\Users\Mi\source\repos\Baranov_CS\Baranov_CS\obj\Debug\Baranov_CS.csprojAssemblyReference.cache
+C:\Users\Mi\source\repos\Baranov_CS\Baranov_CS\obj\Debug\Baranov_CS.csproj.CoreCompileInputs.cache
+C:\Users\Mi\source\repos\Baranov_CS\Baranov_CS\bin\Debug\Baranov_CS.exe.config
+C:\Users\Mi\source\repos\Baranov_CS\Baranov_CS\bin\Debug\Baranov_CS.exe
+C:\Users\Mi\source\repos\Baranov_CS\Baranov_CS\bin\Debug\Baranov_CS.pdb
+C:\Users\Mi\source\repos\Baranov_CS\Baranov_CS\obj\Debug\Baranov_CS.exe
+C:\Users\Mi\source\repos\Baranov_CS\Baranov_CS\obj\Debug\Baranov_CS.pdb
