@@ -13,7 +13,7 @@ namespace Baranov_CS.MenuClasses {
         }
 
         public override void Execute() {
-            Console.WriteLine("Выход из программы\n");
+            Console.WriteLine("\nExit the program.\n");
             Environment.Exit(0);
         }
     }

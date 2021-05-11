@@ -11,8 +11,7 @@ namespace Baranov_CS.MenuClasses {
         }
 
         public override void Execute() {
-            Menu.infMessage = "Hello world!";
-            Console.Clear();
+            FireInfoUpdate("Hello world!");
         }
     }
 }

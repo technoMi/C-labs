@@ -16,7 +16,6 @@ namespace Baranov_CS.MenuClasses {
 
         public override void Execute() {
             numbersRequest();
-            Console.Clear();
         }
 
         private void numbersRequest() {
@@ -25,40 +24,16 @@ namespace Baranov_CS.MenuClasses {
 
             Console.WriteLine("==============================================");
             Console.Write("(->) Enter the number X: ");
-            X = inputOnlyPositiveIntNumber(X);
+            X = VlCheck.inputOnlyPositiveIntNumber(X);
 
             Console.Write("(->) Enter the number Y: ");
-            Y = inpuIntNumber(Y);
+            Y = VlCheck.inpuIntNumber(Y);
 
             Console.Write("(->) Enter the number Z: ");
-            Z = inpuIntNumber(Z);
+            Z = VlCheck.inpuIntNumber(Z);
 
             calcResult = (Math.Pow(Y, 3) + (3 * Math.Sqrt(X)) + Z);
-            Menu.infMessage = Y + "^3+3*sqrt(" + X + ")+" + Z + " = " + calcResult.ToString("F" + 3);
-        }
-
-        public static int checkForNumberInput(int incoming_value) {
-            while (!int.TryParse(Console.ReadLine(), out incoming_value)) {
-                Console.WriteLine("----------------------------------------------");
-                Console.WriteLine("(!) ERROR: not an integer entered.");
-                Console.Write("(->) Enter the number: ");
-            }
-            return incoming_value;
-        }
-
-        public static int inpuIntNumber(int incoming_value) {
-            incoming_value = checkForNumberInput(incoming_value);
-            return incoming_value;
-        }
-
-        public static int inputOnlyPositiveIntNumber(int incoming_value) {
-
-            while (!int.TryParse(Console.ReadLine(), out incoming_value) || incoming_value < 0) {
-                Console.WriteLine("----------------------------------------------");
-                Console.WriteLine("(!) ERROR: non-integer or negative number entered.");
-                Console.Write("(->) Enter the number:");
-            }
-            return incoming_value;
+            FireInfoUpdate(Y + "^3+3*sqrt(" + X + ")+" + Z + " = " + calcResult.ToString("F" + 3));
         }
     }
 }

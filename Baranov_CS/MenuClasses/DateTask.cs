@@ -22,16 +22,15 @@ namespace Baranov_CS.MenuClasses {
 
             inputDate();
 
-            string list = madeList();
-
-            if (list == "0 ") {
-                Menu.infMessage = "Segments do not intersect";
+            if (madeList() == "0 ") {
+                FireInfoUpdate("Segments do not intersect");
+            } else if (madeList() == "n mnogo"){
+                FireInfoUpdate("n mnogo");
             } else {
-                Menu.infMessage = "From 0 to n: " + list;
+                FireInfoUpdate("From 0 to n: " + madeList());
             }
-            Console.Clear();
         }
-            
+ 
         public void drawInterface() {
             Console.WriteLine("==============================================");
             Console.WriteLine("The first date must be less than second and");
@@ -42,28 +41,28 @@ namespace Baranov_CS.MenuClasses {
 
         private void inputDate() {
             Console.Write("(->) Enter the First date: ");
-            FirstDate = GetDate();
+            FirstDate = VlCheck.safeReadDate();
             Console.Write("(->) Enter the second date: ");
-            SecondDate = GetDate();
+            SecondDate = VlCheck.safeReadDate();
+            while (FirstDate > SecondDate) {
+                Console.WriteLine("----------------------------------------------");
+                Console.WriteLine("(!) ERROR: uncorrect input a date.");
+                Console.Write("(->) Enter the First date: ");
+                FirstDate = VlCheck.safeReadDate();
+                Console.Write("(->) Enter the Second date: ");
+                SecondDate = VlCheck.safeReadDate();
+            }
             Console.Write("(->) Enter the third date: ");
-            ThirdDate = GetDate();
+            ThirdDate = VlCheck.safeReadDate();
             Console.Write("(->) Enter the fourth date: ");
-            FourthDate = GetDate();
-        }
-
-        private DateTime GetDate() {
-
-            while (true) {
-
-                string enteredDate = Console.ReadLine();
-
-                if (DateTime.TryParseExact(enteredDate, "dd.MM.yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime date)) {
-                    return date;
-                } else {
-                    Console.WriteLine("----------------------------------------------");
-                    Console.WriteLine("(!) ERROR: uncorrect input a date.");
-                    Console.Write("(->) Enter the date: ");
-                }
+            FourthDate = VlCheck.safeReadDate();
+            while (ThirdDate > FourthDate) {
+                Console.WriteLine("----------------------------------------------");
+                Console.WriteLine("(!) ERROR: uncorrect input a date.");
+                Console.Write("(->) Enter the Third date: ");
+                ThirdDate = VlCheck.safeReadDate();
+                Console.Write("(->) Enter the Fourth date: ");
+                FourthDate = VlCheck.safeReadDate();
             }
         }
 
@@ -71,11 +70,16 @@ namespace Baranov_CS.MenuClasses {
 
             string list = "";
             int N = GetArgument();
+            int arg_constraint = 10000;
 
-            for (int i = 0; i <= Convert.ToInt32(N); i++) {
-                list += Convert.ToString(i) + " ";
+            if (N < arg_constraint) {
+                for (int i = 0; i <= Convert.ToInt32(N); i++) {
+                    list += Convert.ToString(i) + " ";
+                }
+                return list;
+            } else {
+                return "Argument n is too big.";
             }
-            return list;
         }
 
         private int GetArgument() {
